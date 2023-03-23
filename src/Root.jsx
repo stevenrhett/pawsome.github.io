@@ -1,15 +1,14 @@
 import {Outlet} from 'react-router-dom'
-import GetInTouch from "./getInTouch";
 import './index.css';
+import Navigation from "./Navigation.jsx";
+import React from "react";
 
-function RootLayout() {
-
-
-    return <>
-        <GetInTouch/>
+function Root() {
+    return (<div>
+        <Navigation/>
         <Outlet/>
-    </>
-
+    </div>);
 }
 
-export default RootLayout;
+
+export default Root;
