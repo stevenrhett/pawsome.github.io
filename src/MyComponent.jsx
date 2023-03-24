@@ -1,7 +1,8 @@
 import React from 'react';
 
-const CustomSVG = () => {
+const MyComponent = () => {
     return (
+        <div className="my-bg">
         <div className="relative">
             <svg className="absolute inset-0 -z-10 h-full w-full stroke-blue-200" aria-hidden="true">
                 <defs>
@@ -15,7 +16,8 @@ const CustomSVG = () => {
                 <rect width="100%" height="100%" strokeWidth="0" fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)" />
             </svg>
         </div>
+        </div>
     );
 };
 
-export default CustomSVG;
+export default MyComponent;

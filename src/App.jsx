@@ -1,4 +1,3 @@
-import '/src/index.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import React from "react";
 import Paws from "./Paws.jsx";
@@ -10,7 +9,8 @@ import Home from "./Home.jsx";
 import Staff from "./Staff.jsx";
 
 
-const router = createBrowserRouter([{
+const router = createBrowserRouter([
+    {
     path: "/",
     element: <Root/>,
     children: [
