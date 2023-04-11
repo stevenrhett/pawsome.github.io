@@ -4,6 +4,7 @@ import Navigation from "./Navigation.jsx";
 import React from "react";
 import Footer from "./Footer.jsx";
 import "./Root.module.css"
+import Home from "./Home.jsx";
 
 
 function classNames(...classes) {
@@ -14,6 +15,7 @@ export default function Root() {
     return (
         <div>
             <Navigation/>
+            <Home/>
             <Outlet/>
             <Footer/>
         </div>

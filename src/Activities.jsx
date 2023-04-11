@@ -1,5 +1,4 @@
 import React from 'react';
-import bgSvg from "tailwindcss-bg-svg";
 
 
 export default function Activities() {
@@ -10,6 +9,5 @@ export default function Activities() {
     )
 }
 
-module.exports = bgSvg;
 
 

@@ -6,30 +6,30 @@ export default function Home() {
 
     return (
         <div className="relative isolate bg-white">
-            {/*<svg*/}
-            {/*    className="absolute inset-0 -z-10 h-full w-full stroke-blue-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"*/}
-            {/*    aria-hidden="true"*/}
-            {/*>*/}
-            {/*    <defs>*/}
-            {/*        <pattern*/}
-            {/*            id="83fd4e5a-9d52-42fc-97b6-718e5d7ee527"*/}
-            {/*            width={200}*/}
-            {/*            height={200}*/}
-            {/*            x="50%"*/}
-            {/*            y={-1}*/}
-            {/*            patternUnits="userSpaceOnUse"*/}
-            {/*        >*/}
-            {/*            <path d="M100 200V.5M.5 .5H200" fill="none"/>*/}
-            {/*        </pattern>*/}
-            {/*    </defs>*/}
-            {/*    <svg x="50%" y={-1} className="overflow-visible fill-blue-50">*/}
-            {/*        <path*/}
-            {/*            d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z"*/}
-            {/*            strokeWidth={0}*/}
-            {/*        />*/}
-            {/*    </svg>*/}
-            {/*    <rect width="100%" height="100%" strokeWidth={0} fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)"/>*/}
-            {/*</svg>*/}
+            <svg
+                className="absolute inset-0 -z-10 h-full w-full stroke-blue-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+                aria-hidden="true"
+            >
+                <defs>
+                    <pattern
+                        id="83fd4e5a-9d52-42fc-97b6-718e5d7ee527"
+                        width={200}
+                        height={200}
+                        x="50%"
+                        y={-1}
+                        patternUnits="userSpaceOnUse"
+                    >
+                        <path d="M100 200V.5M.5 .5H200" fill="none"/>
+                    </pattern>
+                </defs>
+                <svg x="50%" y={-1} className="overflow-visible fill-blue-50">
+                    <path
+                        d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z"
+                        strokeWidth={0}
+                    />
+                </svg>
+                <rect width="100%" height="100%" strokeWidth={0} fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)"/>
+            </svg>
             <div className="px-2 pt-4 lg:px-6">
 
             </div>
@@ -48,12 +48,12 @@ export default function Home() {
                     </p>
                     <div className="mt-5 flex items-center gap-x-6">
                         <a
-                            href="#"
+                            href="/home"
                             className="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                         >
                             Paw'Some
                         </a>
-                        <a href="#" className="text-sm font-semibold leading-6 text-blue-900">
+                        <a href="/home" className="text-sm font-semibold leading-6 text-blue-900">
                             Learn more <span aria-hidden="true">→</span>
                         </a>
                     </div>
