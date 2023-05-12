@@ -1,7 +1,10 @@
-import React from 'react';
+import "./styles.css";
+import YoutubeEmbed from "./YoutubeEmbed.jsx";
+
 
 export default function Paws() {
-    return (<div>
-        Paws
+    return (<div className="App">
+        <YoutubeEmbed embedId="uZuffUJ-zr0"/>
     </div>)
 }
+

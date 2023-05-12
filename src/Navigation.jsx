@@ -1,134 +1,88 @@
-import React from 'react'
-import {Disclosure, Menu} from '@headlessui/react'
-import {Bars3CenterLeftIcon, XMarkIcon} from '@heroicons/react/24/outline'
+import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/outline/index.js";
+import {useState} from "react";
+import {Dialog} from "@headlessui/react";
 import {NavLink} from "react-router-dom";
-import logo from "./assets/pet__training.png";
+import classes from "./Root.module.css";
 
-const navigation = [{name: 'Home', href: '/home', current: false}, {
+const navigation = [{name: 'Home', href: '/', current: false}, {
     name: 'Paws', href: '/paws', current: false
 }, {name: 'Activities', href: '/activities', current: false}, {
     name: 'Staff', href: '/staff', current: false
-}, {name: 'Connect', href: '/getintouch', current: false}]
-
-
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
+}, {name: 'Connect', href: '/connect', current: false}]
 
 export default function Navigation() {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-    return (<div className="relative flex min-h-full flex-col">
+    return (<header className="bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-100">
 
-            <div className="bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-100">
-
-
-                {/* Navbar */}
-
-                <Disclosure as="nav" className="flex-shrink-0 ">
-                    {({open}) => (<>
-                        <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
-                            <div className="relative flex h-16 items-center justify-around">
-
-                                {/* Logo section */}
-
-                                <div className="flex items-center px-2 lg:px-0">
-                                    <div className="flex-shrink-0">
-                                        <NavLink to="/home">
-                                            <img className="flex h-20 w-auto lg:hidden"
-                                                 src={logo}
-                                                 alt="Pet Training"
-                                            /></NavLink>
-                                    </div>
-                                </div>
-                            </div>
-                            {/* Middle section */}
-
-                            <div className="flex flex-1 justify-center lg:justify-end">
-                                <div className="w-full px-2 lg:px-6">
-
-                                </div>
-                            </div>
-                            <div
-                                className="flex lg:hidden rounded-full text-lg -mr-2 items-center">
-
-                                {/* Mobile menu button */}
-
-                                <Disclosure.Button
-                                    className="inline-flex items-center justify-center rounded-md p-2 text-white
-                                       focus:outline-none focus:ring-2
-                                        focus:ring-inset focus:ring-white">
-                                    <span className="sr-only">Open main menu</span>
-                                    {open ? (<XMarkIcon className="block h-6 w-6" aria-hidden="true"/>) : (
-                                        <Bars3CenterLeftIcon className="block h-6 w-6" aria-hidden="true"/>)}
-                                </Disclosure.Button>
-                            </div>
-
-                            {/* lg-screen navigation bar */}
-
-                            <div className="hidden lg:block lg:w-80">
-                                <div className="flex items-center space-x-8 justify-end">
-                                    <div className="flex">
-                                        {navigation.map((item) => (<NavLink to={item.href}
-                                                                            key={item.name}
-                                                                            className="rounded-md px-3 py-2 text-md font-medium text-white"
-                                                                            aria-current={item.current ? 'page' : undefined}
-                                        >
-                                            {item.name}
-                                        </NavLink>))}
-                                    </div>
-
-                                    {/* dropdown list */}
-
-                                    <Menu as="div" className="relative ml-4 flex-shrink-0">
-                                        <div>
-                                            <Menu.Button
-                                                className="flex rounded-full bg-blue-400 text-sm text-white
-                                                    focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2
-                                                    focus:ring-offset-blue-100">
-                                                <span className="sr-only">Open Mobile menu</span>
-                                            </Menu.Button>
-                                        </div>
-                                        <Menu.Items
-                                            className="absolute mt-2 w-48 origin-top-right rounded-md bg-white py-1">
-                                            {navigation.map((item) => (<Menu.Item key={item.name}>
-                                                {({active}) => (<NavLink to={item.name}
-                                                                         href={item.href}
-                                                                         className={classNames(active ? 'bg-base text-white' : 'text-white', 'block rounded-md px-3 py-2 text-base font-medium')}
-                                                >
-
-                                                </NavLink>)}
-                                            </Menu.Item>))}
-                                        </Menu.Items>
-                                    </Menu>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <Disclosure.Panel className="lg:hidden">
-                            <div className="space-y-1 px-2 pt-2 pb-3">
-                                {navigation.map((item) => (<Disclosure.Button
-                                    key={item.name}
-                                    as="a"
-                                    href={item.href}
-                                    className={classNames(item.current ? 'bg-blue-50 text-white' : 'text-white', 'block rounded-md px-3 py-2 text-base font-medium')}
-                                    aria-current={item.current ? 'page' : undefined}
+        <nav
+            className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+            aria-label="Global"
+        >
+            <div className="flex lg:hidden">
+                <button
+                    type="button"
+                    className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-indigo-600"
+                    onClick={() => setMobileMenuOpen(true)}
+                >
+                    <span className="sr-only">Open main menu</span>
+                    <Bars3Icon className="h-6 w-6" aria-hidden="true"/>
+                </button>
+            </div>
+            <div className="list hidden lg:flex lg:gap-x-12">
+                {navigation.map((item) => (<a
+                    key={item.name}
+                    href={item.href}
+                    className="text-sm font-semibold leading-6 text-indigo-600"
+                >
+                    <NavLink
+                        to={item.href}
+                        className={({isActive}) => isActive ? classes.active : undefined}
+                        end
+                    >
+                        {item.name}
+                    </NavLink>
+                </a>))}
+            </div>
+        </nav>
+        <Dialog
+            as="div"
+            className="lg:hidden"
+            open={mobileMenuOpen}
+            onClose={setMobileMenuOpen}
+        >
+            <div className="fixed inset-0 z-10"/>
+            <Dialog.Panel
+                className="sm:ring-indigo/10 fixed inset-y-0 right-0 z-10 h-fit w-fit overflow-y-auto bg-base-100 px-6 py-6 sm:max-w-sm sm:ring-1">
+                <div className="flex items-center justify-between">
+                    <button
+                        type="button"
+                        className="-m-2.5 rounded-md p-2.5 text-indigo-600"
+                        onClick={() => setMobileMenuOpen(false)}
+                    >
+                        <span className="sr-only">Close menu</span>
+                        <XMarkIcon className="h-6 w-6" aria-hidden="true"/>
+                    </button>
+                </div>
+                <div className="mt-6 flow-root">
+                    <div className="-my-6 divide-y divide-indigo-600/50">
+                        <div className="space-y-2 py-6">
+                            {navigation.map((item) => (<a
+                                key={item.name}
+                                href={item.href}
+                                className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-indigo-600 hover:bg-indigo-100"
+                            >
+                                <NavLink
+                                    to={item.href}
+                                    className={({isActive}) => isActive ? classes.active : undefined}
                                 >
                                     {item.name}
-                                </Disclosure.Button>))}
-                            </div>
-                        </Disclosure.Panel>
-                    </>)}
-                </Disclosure>
-                {/* main wrapper */}
-
-                <div className="mx-auto w-full max-w-7xl flex-grow lg:flex xl:px-8">
+                                </NavLink>
+                            </a>))}
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-        </div>
-
-
-    )
+            </Dialog.Panel>
+        </Dialog>
+    </header>);
 }
-
